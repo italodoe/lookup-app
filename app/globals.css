@@ -83,6 +83,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-sky-50;
   }
+}
+
+/* custom theme */
+
+.bg-default-1 {
+  @apply bg-navy-1;
+}
+.bg-default-2 {
+  @apply bg-navy-2;
 }
