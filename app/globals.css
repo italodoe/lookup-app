@@ -20,6 +20,12 @@
   .text-balance {
     text-wrap: balance;
   }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
 }
 
 @layer base {
@@ -90,8 +96,17 @@
 /* custom theme */
 
 .bg-default-1 {
-  @apply bg-navy-1;
+  @apply bg-forest-1;
 }
 .bg-default-2 {
-  @apply bg-navy-2;
+  @apply bg-forest-2;
+}
+.bg-default-3 {
+  @apply bg-forest-3;
+}
+.bg-default-4 {
+  @apply bg-forest-4;
+}
+.bg-default-5 {
+  @apply bg-forest-5;
 }

@@ -4,10 +4,11 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
- 
+
 export const metadata: Metadata = {
   title: "Lookup - Connect in Real-Time",
-  description: "Lookup provides an intuitive platform for meetings and live streaming.",
+  description:
+    "Lookup provides an intuitive platform for meetings and live streaming.",
 };
 
 export default function RootLayout({
@@ -17,8 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, `bg-default-2`)}  >{children}</body>
+      <body className={cn(inter.className, `bg-default-1`)}>{children}</body>
     </html>
   );
 }
- 
