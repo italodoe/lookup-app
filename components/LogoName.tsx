@@ -8,9 +8,13 @@ const font = Poppins({
   weight: ["600"],
 });
 
-const LogoName = () => {
+interface LogoNameProps {
+  classes?: string;
+}
+
+const LogoName = ({ classes }: LogoNameProps) => {
   return (
-    <div className="flex flex-row">
+    <div className={cn("flex flex-row")}>
       <Image
         src={"/icons/logo-black.svg"}
         width={48}
@@ -20,8 +24,9 @@ const LogoName = () => {
       />
       <h1
         className={cn(
+          classes ?? "text-6xl text-gray-50",
           font.className,
-          "text-6xl font-semibold text-gray-50 drop-shadow-md"
+          " font-semibold drop-shadow-md"
         )}
       >
         XatUp
