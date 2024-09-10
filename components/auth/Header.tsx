@@ -1,6 +1,5 @@
-import React from "react";
+import { DEFAULT_LOGIN_PAGE } from "@/routes";
 import { Poppins } from "next/font/google";
-import { cn } from "@/lib/utils";
 import LogoName from "../LogoName";
 
 const font = Poppins({
@@ -15,7 +14,7 @@ interface HeaderProps {
 const Header = ({ label }: HeaderProps) => {
   return (
     <div className="w-full flex flex-col gap-y-4 items-center justify-center">
-      <LogoName classes="text-5xl text-black" />
+      <LogoName classes="text-5xl text-black" href={DEFAULT_LOGIN_PAGE} />
       <p className="text-muted-foreground text-sm">{label}</p>
     </div>
   );

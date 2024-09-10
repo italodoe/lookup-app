@@ -1,13 +1,14 @@
 "use client";
-import React, { useState, useTransition } from "react";
 import Link from "next/link";
+import { useState, useTransition } from "react";
 
 import CardWrapper from "./CardWrapper";
 
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,13 +17,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { Input } from "../ui/input";
 
+import { login } from "@/actions/login";
+import { DEFAULT_REGISTER_PAGE } from "@/routes";
 import { LoginSchema } from "@/schemas";
 import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
-import { login } from "@/actions/login";
 
 const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
@@ -43,8 +44,14 @@ const LoginForm = () => {
 
     startTransition(() => {
       login(values).then((data) => {
-        setError(data.error);
-        setSuccess(data.success);
+        if (data?.error) {
+          form.reset();
+          setError(data.error);
+        }
+        /*      if (data?.success) {
+          form.reset();
+          setSuccess(data.success);
+        } */
       });
     });
   };
@@ -53,7 +60,7 @@ const LoginForm = () => {
     <CardWrapper
       headerLabel={"Welcome back"}
       backButtonLabel={"Don't have an account?"}
-      backButtonHref={"/auth/register"}
+      backButtonHref={DEFAULT_REGISTER_PAGE}
       showSocial
     >
       <Form {...form}>

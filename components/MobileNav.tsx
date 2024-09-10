@@ -3,17 +3,16 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
 import { sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LogoName from "./LogoName";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -31,19 +30,13 @@ const MobileNav = () => {
           />
         </SheetTrigger>
         <SheetContent className="bg-default-1">
-          <Link
-            href="/"
-            className="flex items-center gap-1 max-lg:justify-center justify-center w-full"
-          >
-            <Image
-              src={"/icons/logo-black.svg"}
-              width={32}
-              height={32}
-              alt={"LookUp"}
-              className="max-sm:size-10"
+          <div className="w-full items-center flex gap-1 max-lg:justify-center justify-center ">
+            <LogoName
+              classes="text-3xl text-gray-50 "
+              href={DEFAULT_LOGIN_REDIRECT}
             />
-            <p className="text-white font-bold text-[26px] ">LookUp</p>
-          </Link>
+          </div>
+
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto ">
             <SheetClose asChild>
               <section className="flex flex-col h-full gap-6 pt-16 text-zinc-50">

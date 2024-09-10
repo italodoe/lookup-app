@@ -1,4 +1,5 @@
 "use client";
+import { DEFAULT_LOGIN_PAGE } from "@/routes";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -15,7 +16,7 @@ const LoginButton = ({
 }: LoginButtonProps) => {
   const router = useRouter();
   const onClick = () => {
-    router.push("/auth/login");
+    router.push(DEFAULT_LOGIN_PAGE);
   };
   if (mode === "modal") return <span>TODO implement modal</span>;
   return (

@@ -24,9 +24,10 @@ export const sidebarItems = [
     route: "/personal-room",
     imgUrl: "/icons/personal-room-v2.svg",
   },
-  {
-    label: "Profile",
-    route: "/profile",
-    imgUrl: "/icons/profile.svg",
-  },
 ];
+
+export const logoutItem = {
+  label: "Sign out",
+  route: "",
+  imgUrl: "/icons/logout.svg",
+};

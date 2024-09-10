@@ -1,10 +1,8 @@
-import { cn } from "@/lib/utils";
- import React from "react";
-import { Poppins } from "next/font/google";
-import { Button } from "@/components/ui/button";
-// import LoginButton from "@/components/auth/LoginButton";
 import LoginButton from "@/components/auth/LoginButton";
 import LogoName from "@/components/LogoName";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Poppins } from "next/font/google";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -20,7 +18,7 @@ export default function Home() {
       )}
     >
       <div className="space-y-6 text-center ">
-        <LogoName />
+        <LogoName href={"/"} />
         <p className="text-white tex-lg ">Video Meeting App</p>
       </div>
       <div className="my-6 text-center ">

@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { User } from "@prisma/client";
 
 /**
  * Retrieves a user by their email address from the database.
@@ -6,7 +7,7 @@ import { db } from "@/lib/db";
  * @param {string} email - The email address of the user to retrieve.
  * @returns {Promise<Object|null>} - The user object if found, otherwise null.
  */
-export const getUserByEmail = async (email: string): Promise<object | null> => {
+export const getUserByEmail = async (email: string) => {
   try {
     const user = await db.user.findUnique({
       where: {
@@ -23,9 +24,9 @@ export const getUserByEmail = async (email: string): Promise<object | null> => {
  * Retrieves a user by their unique ID from the database.
  *
  * @param {string} id - The unique ID of the user to retrieve.
- * @returns {Promise<Object|null>} - The user object if found, otherwise null.
+ * @returns {Promise<User|null>} - The user object if found, otherwise null.
  */
-export const getUserById = async (id: string): Promise<object | null> => {
+export const getUserById = async (id: string) => {
   try {
     const user = await db.user.findUnique({
       where: {
@@ -44,7 +45,7 @@ export const getUserById = async (id: string): Promise<object | null> => {
  * @param {string} name - The name of the user.
  * @param {string} email - The email address of the user.
  * @param {string} hashedPassword - The hashed password of the user.
- * @returns {Promise<Object|null>} - The newly created user object, or null if the creation fails.
+ * @returns {Promise<User|null>} - The newly created user object, or null if the creation fails.
  */
 export const createUser = async (
   name: string,

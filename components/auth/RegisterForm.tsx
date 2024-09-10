@@ -1,13 +1,13 @@
 "use client";
-import React, { useState, useTransition } from "react";
-import Link from "next/link";
+import { useState, useTransition } from "react";
 
 import CardWrapper from "./CardWrapper";
 
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
 
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,13 +16,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { Input } from "../ui/input";
 
+import { register } from "@/actions/register";
+import { DEFAULT_LOGIN_PAGE } from "@/routes";
 import { RegisterSchema } from "@/schemas";
 import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
-import { register } from "@/actions/register";
 
 const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();
@@ -53,7 +53,7 @@ const RegisterForm = () => {
     <CardWrapper
       headerLabel={"Create an account"}
       backButtonLabel={"Back to login"}
-      backButtonHref={"/auth/login"}
+      backButtonHref={DEFAULT_LOGIN_PAGE}
       showSocial
     >
       <Form {...form}>

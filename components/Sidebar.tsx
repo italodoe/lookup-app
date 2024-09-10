@@ -1,10 +1,13 @@
 "use client";
-import { sidebarItems } from "@/constants";
+import { logout } from "@/actions/logout";
+import { logoutItem, sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-import Image from "next/image";
+import LogoName from "./LogoName";
+import { Button } from "./ui/button";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -17,21 +20,10 @@ const Sidebar = () => {
       )}
     >
       <div>
-        <Link
-          href="/"
-          className="flex items-center gap-1 max-lg:justify-center w-fill lg:pl-5"
-        >
-          <Image
-            src={"/icons/logo-black.svg"}
-            width={32}
-            height={32}
-            alt={"LookUp"}
-            className="max-sm:size-10"
-          />
-          <p className="text-white font-bold text-[26px] max-lg:hidden ">
-            LookUp
-          </p>
-        </Link>
+        <LogoName
+          classes="text-3xl text-gray-50"
+          href={DEFAULT_LOGIN_REDIRECT}
+        />
       </div>
       <div className="flex flex-1 flex-col  justify-center gap-6 relative">
         {sidebarItems.map((item) => {
@@ -60,6 +52,34 @@ const Sidebar = () => {
             </Link>
           );
         })}
+      </div>
+      <div>
+        <form
+          action={async () => {
+            await logout();
+          }}
+        >
+          <div
+            className={cn(
+              "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	cursor-pointer",
+
+              "hover:bg-onyx-1"
+            )}
+          >
+            <Image
+              src={logoutItem.imgUrl}
+              alt={logoutItem.label}
+              width={24}
+              height={24}
+            />
+            <Button
+              variant={"secondary"}
+              className="text-lg font-semibold max-lg:hidden"
+            >
+              {logoutItem.label}
+            </Button>
+          </div>
+        </form>
       </div>
     </section>
   );
