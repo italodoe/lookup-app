@@ -124,17 +124,17 @@ body,
 /* custom theme */
 
 .bg-default-1 {
-  @apply bg-forest-1;
+  @apply bg-now-1;
 }
 .bg-default-2 {
-  @apply bg-forest-2;
+  @apply bg-now-2;
 }
 .bg-default-3 {
-  @apply bg-forest-3;
+  @apply bg-now-3;
 }
 .bg-default-4 {
-  @apply bg-forest-4;
+  @apply bg-now-4;
 }
 .bg-default-5 {
-  @apply bg-forest-5;
+  @apply bg-now-5;
 }
