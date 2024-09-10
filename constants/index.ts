@@ -1,27 +1,27 @@
 export const sidebarItems = [
   {
     label: "Home",
-    route: "/",
+    route: "/dashboard",
     imgUrl: "/icons/home.svg",
   },
   {
     label: "Upcoming",
-    route: "/upcoming",
+    route: "/dashboard/upcoming",
     imgUrl: "/icons/upcoming.svg",
   },
   {
     label: "Previous",
-    route: "/previous",
+    route: "/dashboard/previous",
     imgUrl: "/icons/previous.svg",
   },
   {
     label: "Recordings",
-    route: "/recordings",
+    route: "/dashboard/recordings",
     imgUrl: "/icons/recordings-v2.svg",
   },
   {
     label: "Personal Room",
-    route: "/personal-room",
+    route: "/dashboard/personal-room",
     imgUrl: "/icons/personal-room-v2.svg",
   },
 ];

@@ -16,7 +16,7 @@ interface LogoNameProps {
 const LogoName = ({ classes, href }: LogoNameProps) => {
   return (
     <Link href={href}>
-      <div className={cn("flex flex-row")}>
+      <div className={cn("flex flex-row items-center")}>
         <Image
           src={"/icons/logo-black.svg"}
           width={48}

@@ -27,9 +27,10 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-1 flex-col  justify-center gap-6 relative">
         {sidebarItems.map((item) => {
+          console.log(pathname)
           const active =
             pathname === item.route ||
-            (item.route.length > 1 && pathname.startsWith(item.route));
+            (item.route.length > DEFAULT_LOGIN_REDIRECT.length && pathname.startsWith(item.route) );
           return (
             <Link
               href={item.route}

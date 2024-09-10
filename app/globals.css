@@ -124,17 +124,17 @@ body,
 /* custom theme */
 
 .bg-default-1 {
-  @apply bg-now-1;
+  @apply bg-starla-1;
 }
 .bg-default-2 {
-  @apply bg-now-2;
+  @apply bg-starla-2;
 }
 .bg-default-3 {
-  @apply bg-now-3;
+  @apply bg-starla-3;
 }
 .bg-default-4 {
-  @apply bg-now-4;
+  @apply bg-starla-4;
 }
 .bg-default-5 {
-  @apply bg-now-5;
+  @apply bg-starla-5;
 }
