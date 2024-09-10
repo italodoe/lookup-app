@@ -15,7 +15,7 @@ const Sidebar = () => {
     <section
       className={cn(
         `bg-default-1`,
-        "sticky left-0 top-0 flex h-screen w-fit flex-col justify-between p-6 h-auto  text-white",
+        "sticky left-0 top-0 flex h-screen w-fit flex-col justify-between p-6 text-white",
         "max-sm:hidden jg:w-[264px]"
       )}
     >

@@ -6,13 +6,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { sidebarItems } from "@/constants";
+import { logoutItem, sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LogoName from "./LogoName";
+import { Button } from "./ui/button";
+import { logout } from "@/actions/logout";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -66,6 +68,35 @@ const MobileNav = () => {
                     </SheetClose>
                   );
                 })}
+                <div>
+                  <form
+                    action={async () => {
+                      await logout();
+                    }}
+                  >
+                    <div
+                      className={cn(
+                        "flex gap-5 items-center p-5 rounded-lg	cursor-pointer",
+
+                        "hover:bg-onyx-1"
+                      )}
+                    >
+                      <Image
+                        src={logoutItem.imgUrl}
+                        alt={logoutItem.label}
+                        width={24}
+                        height={24}
+                      />
+                      <Button
+                        variant={"secondary"}
+                        className={cn(
+                          "flex  rounded-lg w-full justify-start text-lg font-medium ",
+                        )}                      >
+                        {logoutItem.label}
+                      </Button>
+                    </div>
+                  </form>
+                </div>
               </section>
             </SheetClose>
           </div>
