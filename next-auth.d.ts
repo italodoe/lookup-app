@@ -7,6 +7,7 @@ import NextAuth, { type DefaultSession } from "next-auth";
  */
 export type extendedUser = DefaultSession["user"] & {
   role: UserRole;
+  isOAuth: boolean;
 };
 
 // https://authjs.dev/getting-started/typescript

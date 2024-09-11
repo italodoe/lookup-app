@@ -1,6 +1,13 @@
 import { db } from "@/lib/db";
 import { User } from "@prisma/client";
 
+export const updateUser = async (id: string, values: any): Promise<void> => {
+  await db.user.update({
+    where: { id },
+    data: { ...values },
+  });
+};
+
 /**
  * Updates the user's password in the database.
  *

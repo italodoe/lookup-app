@@ -67,3 +67,9 @@ export const apiAuthPrefix: string = "/api/auth";
  * Redirect path after a successful login.
  */
 export const DEFAULT_LOGIN_REDIRECT: string = "/dashboard";
+
+/**
+ * @type {string}
+ * Redirect path after a successful login.
+ */
+export const DEFAULT_PROFILE_PAGE: string = "/dashboard/profile";
