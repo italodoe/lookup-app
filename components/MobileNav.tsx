@@ -68,15 +68,17 @@ const MobileNav = () => {
                     </SheetClose>
                   );
                 })}
-                <div>
+                <div className="flex flex-2   justify-start gap-6 relative">
                   <form
                     action={async () => {
                       await logout();
                     }}
                   >
-                    <div
+                    <Button
+                      type="submit"
+                      variant={"ghost"}
                       className={cn(
-                        "flex gap-5 items-center p-5 rounded-lg	cursor-pointer",
+                        "flex gap-5 items-center px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
 
                         "hover:bg-onyx-1"
                       )}
@@ -87,14 +89,10 @@ const MobileNav = () => {
                         width={24}
                         height={24}
                       />
-                      <Button
-                        variant={"secondary"}
-                        className={cn(
-                          "flex  rounded-lg w-full justify-start text-lg font-medium ",
-                        )}                      >
+                      <p className="text-lg font-semibold p-1 ">
                         {logoutItem.label}
-                      </Button>
-                    </div>
+                      </p>
+                    </Button>
                   </form>
                 </div>
               </section>

@@ -27,10 +27,11 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-1 flex-col  justify-center gap-6 relative">
         {sidebarItems.map((item) => {
-          console.log(pathname)
+          console.log(pathname);
           const active =
             pathname === item.route ||
-            (item.route.length > DEFAULT_LOGIN_REDIRECT.length && pathname.startsWith(item.route) );
+            (item.route.length > DEFAULT_LOGIN_REDIRECT.length &&
+              pathname.startsWith(item.route));
           return (
             <Link
               href={item.route}
@@ -54,15 +55,17 @@ const Sidebar = () => {
           );
         })}
       </div>
-      <div>
+      <div className="flex flex-2   justify-start gap-6 relative">
         <form
           action={async () => {
             await logout();
           }}
         >
-          <div
+          <Button
+            type="submit"
+            variant={"ghost"}
             className={cn(
-              "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	cursor-pointer",
+              "flex gap-5 items-center  px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
 
               "hover:bg-onyx-1"
             )}
@@ -73,13 +76,10 @@ const Sidebar = () => {
               width={24}
               height={24}
             />
-            <Button
-              variant={"secondary"}
-              className="text-lg font-semibold max-lg:hidden"
-            >
+            <p className="text-lg font-semibold max-lg:hidden p-1">
               {logoutItem.label}
-            </Button>
-          </div>
+            </p>
+          </Button>
         </form>
       </div>
     </section>
