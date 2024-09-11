@@ -1,9 +1,34 @@
 import { db } from "@/lib/db";
 import { User } from "@prisma/client";
 
+/**
+ * Updates the user's password in the database.
+ *
+ * @param {string} id - The unique ID of the user.
+ * @param {string} hashedPassword - The new hashed password to update.
+ * @returns {Promise<void>} - Resolves when the password is successfully updated.
+ */
+export const updateUserPassword = async (
+  id: string,
+  hashedPassword: string
+): Promise<void> => {
+  await db.user.update({
+    where: { id },
+    data: { password: hashedPassword },
+  });
+};
 
-
-export const updateUserVerificationEmail = async (id: string, email: string) => {
+/**
+ * Updates the user's email and marks it as verified.
+ *
+ * @param {string} id - The unique ID of the user.
+ * @param {string} email - The new email address to update.
+ * @returns {Promise<void>} - Resolves when the email is successfully updated and verified.
+ */
+export const updateUserVerificationEmail = async (
+  id: string,
+  email: string
+): Promise<void> => {
   await db.user.update({
     where: { id },
     data: {
@@ -13,19 +38,16 @@ export const updateUserVerificationEmail = async (id: string, email: string) => 
   });
 };
 
-
 /**
  * Retrieves a user by their email address from the database.
  *
  * @param {string} email - The email address of the user to retrieve.
- * @returns {Promise<Object|null>} - The user object if found, otherwise null.
+ * @returns {Promise<User|null>} - The user object if found, otherwise null.
  */
-export const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email: string): Promise<User | null> => {
   try {
     const user = await db.user.findUnique({
-      where: {
-        email,
-      },
+      where: { email },
     });
     return user;
   } catch (error) {
@@ -39,12 +61,10 @@ export const getUserByEmail = async (email: string) => {
  * @param {string} id - The unique ID of the user to retrieve.
  * @returns {Promise<User|null>} - The user object if found, otherwise null.
  */
-export const getUserById = async (id: string) => {
+export const getUserById = async (id: string): Promise<User | null> => {
   try {
     const user = await db.user.findUnique({
-      where: {
-        id,
-      },
+      where: { id },
     });
     return user;
   } catch (error) {
@@ -64,7 +84,7 @@ export const createUser = async (
   name: string,
   email: string,
   hashedPassword: string
-): Promise<object | null> => {
+): Promise<User | null> => {
   try {
     const user = await db.user.create({
       data: {

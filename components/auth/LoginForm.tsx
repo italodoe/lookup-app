@@ -20,7 +20,7 @@ import {
 import { Input } from "../ui/input";
 
 import { login } from "@/actions/login";
-import { DEFAULT_REGISTER_PAGE } from "@/routes";
+import { DEFAULT_REGISTER_PAGE, DEFAULT_RESET_PASSWORD_PAGE } from "@/routes";
 import { LoginSchema } from "@/schemas";
 import { useSearchParams } from "next/navigation";
 import FormError from "../FormError";
@@ -112,7 +112,9 @@ const LoginForm = () => {
                     asChild
                     className="px-0  font-normal"
                   >
-                    <Link href="/auth/reset">Forgot password?</Link>
+                    <Link href={DEFAULT_RESET_PASSWORD_PAGE}>
+                      Forgot password?
+                    </Link>
                   </Button>
                   <FormMessage />
                 </FormItem>
