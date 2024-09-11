@@ -11,6 +11,9 @@ import { Button } from "./ui/button";
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const onClick = async () => {
+    await logout();
+  };
   return (
     <section
       className={cn(
@@ -56,31 +59,26 @@ const Sidebar = () => {
         })}
       </div>
       <div className="flex flex-2   justify-start gap-6 relative">
-        <form
-          action={async () => {
-            await logout();
-          }}
-        >
-          <Button
-            type="submit"
-            variant={"ghost"}
-            className={cn(
-              "flex gap-5 items-center  px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
+        <Button
+          onClick={onClick}
+          type="submit"
+          variant={"ghost"}
+          className={cn(
+            "flex gap-5 items-center  px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
 
-              "hover:bg-onyx-1"
-            )}
-          >
-            <Image
-              src={logoutItem.imgUrl}
-              alt={logoutItem.label}
-              width={24}
-              height={24}
-            />
-            <p className="text-lg font-semibold max-lg:hidden p-1">
-              {logoutItem.label}
-            </p>
-          </Button>
-        </form>
+            "hover:bg-onyx-1"
+          )}
+        >
+          <Image
+            src={logoutItem.imgUrl}
+            alt={logoutItem.label}
+            width={24}
+            height={24}
+          />
+          <p className="text-lg font-semibold max-lg:hidden p-1">
+            {logoutItem.label}
+          </p>
+        </Button>
       </div>
     </section>
   );
