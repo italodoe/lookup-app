@@ -26,6 +26,12 @@ export const sidebarItems = [
   },
 ];
 
+export const profileItem = {
+  label: "Profile",
+  route: "/dashboard/profile",
+  imgUrl: "/icons/profile.svg",
+};
+
 export const logoutItem = {
   label: "Sign out",
   route: "",

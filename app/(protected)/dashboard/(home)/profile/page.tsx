@@ -8,7 +8,7 @@ const Profile = () => {
   const session = useCurrentUser();
   return (
     <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-4xl font-light">Profile {JSON.stringify(session)}</h1>
+      <h1 className="text-4xl font-light">Profile </h1>
       <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">
         <ProfileNavBar />
 

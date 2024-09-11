@@ -59,14 +59,13 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
      * @returns {Object} Updated session with user ID and role.
      */
     async session({ session, token }) {
-      console.log(session, token);
+      console.log("session-->", session, token);
       if (token.sub && session.user) session.user.id = token.sub;
       if (token.role && session.user)
         session.user.role = token.role as UserRole;
       if (token.name && session.user) session.user.name = token.name;
       if (token.email && session.user) session.user.email = token.email;
-      if (session.user)
-          session.user.isOAuth = token.isOAuth as boolean;
+      if (session.user) session.user.isOAuth = token.isOAuth as boolean;
 
       return session;
     },
@@ -87,12 +86,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
       const existingAccount = await getAccountByUserId(existingUser.id);
 
-      if (existingAccount) {
-        token.role = existingUser.role;
-        token.name = existingUser.name;
-        token.email = existingUser.email;
-        token.isOAuth = !!existingAccount;
-      }
+      token.role = existingUser.role;
+      token.name = existingUser.name;
+      token.email = existingUser.email;
+      token.isOAuth = !!existingAccount;
 
       return token;
     },

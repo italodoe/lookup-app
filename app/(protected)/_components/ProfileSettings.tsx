@@ -72,7 +72,7 @@ const ProfileSettings = () => {
     <Card
       className={cn(
         `bg-default-1`,
-        "flex flex-col p-4 rounded-xl min-w-[300px] w-[600px] shadow-md text-white"
+        "flex flex-col p-4 rounded-xl  max-lg:max-w-[300px] w-[600px] shadow-md text-white"
       )}
     >
       <CardHeader>

@@ -1,6 +1,6 @@
 "use client";
 import { logout } from "@/actions/logout";
-import { logoutItem, sidebarItems } from "@/constants";
+import { logoutItem, profileItem, sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import Image from "next/image";
@@ -58,7 +58,27 @@ const Sidebar = () => {
           );
         })}
       </div>
-      <div className="flex flex-2   justify-start gap-6 relative">
+
+      <div className="flex flex-2 flex-col  justify-start gap-6 relative">
+        <Link
+          href={profileItem.route}
+          key={profileItem.label}
+          className={cn(
+            "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
+            { "bg-default-4": profileItem.route === pathname },
+            "hover:bg-onyx-1"
+          )}
+        >
+          <Image
+            src={profileItem.imgUrl}
+            alt={profileItem.label}
+            width={24}
+            height={24}
+          />
+          <p className="text-lg font-semibold max-lg:hidden">
+            {profileItem.label}
+          </p>
+        </Link>
         <Button
           onClick={onClick}
           type="submit"

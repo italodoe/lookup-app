@@ -17,11 +17,11 @@ const ProfileNavBar = () => {
     <div
       className={cn(
         `bg-default-1`,
-        "flex justify-between items-center p-4 rounded-xl min-w-[300px] w-[600px] shadow-md"
+        "flex justify-between items-center p-4 rounded-xl  max-lg:max-w-[300px] w-[600px] shadow-md"
       )}
     >
       <div className="flex gap-x-2">
-
+        {/* TODO */}
         {isAdmin && (
             <Button
             asChild
