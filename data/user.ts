@@ -1,6 +1,19 @@
 import { db } from "@/lib/db";
 import { User } from "@prisma/client";
 
+
+
+export const updateUserVerificationEmail = async (id: string, email: string) => {
+  await db.user.update({
+    where: { id },
+    data: {
+      emailVerified: new Date(),
+      email,
+    },
+  });
+};
+
+
 /**
  * Retrieves a user by their email address from the database.
  *

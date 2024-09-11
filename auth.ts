@@ -7,15 +7,26 @@ import { getUserById } from "./data/user";
 import { DEFAULT_AUTH_ERROR_PAGE, DEFAULT_LOGIN_PAGE } from "./routes";
 
 /**
- * @description Configures authentication using NextAuth with Prisma as the adapter.
- * Includes custom pages, event handling, and JWT callbacks for a tailored authentication flow.
+ * Configures authentication with NextAuth and Prisma adapter.
+ * @module NextAuthConfig
  */
+
 export const { auth, handlers, signIn, signOut } = NextAuth({
   pages: {
-    signIn: DEFAULT_LOGIN_PAGE, // Custom login page
-    error: DEFAULT_AUTH_ERROR_PAGE, // Custom error page
+    /**
+     * @property {string} signIn - Path to the custom login page.
+     * @property {string} error - Path to the custom error page.
+     */
+    signIn: DEFAULT_LOGIN_PAGE,
+    error: DEFAULT_AUTH_ERROR_PAGE,
   },
   events: {
+    /**
+     * Marks the user's email as verified when a new account is linked.
+     * @async
+     * @function linkAccount
+     * @param {Object} user - The user object from the OAuth provider.
+     */
     async linkAccount({ user }) {
       await db.user.update({
         where: { id: user.id },
@@ -23,42 +34,51 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       });
     },
   },
-
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      //todo
-      // const existingUser = await getUserById(user.id as string);
-      // if (!existingUser || !existingUser.emailVerified) return false;
-      return true;
+    /**
+     * Handles sign-in logic for credential-based and OAuth logins.
+     * @async
+     * @function signIn
+     * @param {Object} user - The user attempting to sign in.
+     * @param {Object} account - The account information.
+     * @returns {boolean} True if sign-in is allowed, false otherwise.
+     */
+    async signIn({ user, account }) {
+      if (account?.provider !== "credentials") return true;
+      const existingUser = await getUserById(user.id as string);
+      return existingUser?.emailVerified ? true : false;
     },
-    async session({ session, user, token }) {
-      //Attaches the user ID and role to the session object for later use in the application.
-      if (token.sub && session.user) {
-        session.user.id = token.sub;
-      }
-      if (token.role && session.user) {
+
+    /**
+     * Adds user ID and role to the session object.
+     * @async
+     * @function session
+     * @param {Object} session - The current session object.
+     * @param {Object} token - The JWT token containing user data.
+     * @returns {Object} Updated session with user ID and role.
+     */
+    async session({ session, token }) {
+      if (token.sub && session.user) session.user.id = token.sub;
+      if (token.role && session.user)
         session.user.role = token.role as UserRole;
-      }
       return session;
     },
-    async jwt({ token, user, account, profile }) {
+
+    /**
+     * Adds role information to the JWT token.
+     * @async
+     * @function jwt
+     * @param {Object} token - The JWT token.
+     * @returns {Object} Updated token with role.
+     */
+    async jwt({ token }) {
       if (!token.sub) return token;
-
       const existingUser = await getUserById(token.sub);
-
-      if (existingUser) {
-        token.role = existingUser.role;
-      }
-
+      if (existingUser) token.role = existingUser.role;
       return token;
     },
   },
-  // Use Prisma as the database adapter for NextAuth
   adapter: PrismaAdapter(db),
-
-  // Use JWT for session management
   session: { strategy: "jwt" },
-
-  // Additional authentication configuration options
   ...authConfig,
 });
