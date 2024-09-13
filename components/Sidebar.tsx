@@ -28,7 +28,7 @@ const Sidebar = () => {
           href={DEFAULT_LOGIN_REDIRECT}
         />
       </div>
-      <div className="flex flex-1 flex-col  justify-center gap-6 relative">
+      <div className="flex flex-1 flex-col  justify-center gap-6 relative ">
         {sidebarItems.map((item) => {
           console.log(pathname);
           const active =
@@ -39,10 +39,10 @@ const Sidebar = () => {
             <Link
               href={item.route}
               key={item.label}
-              className={cn(
+              className={cn("sidebar-item",
                 "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
-                { "bg-default-4": active },
-                "hover:bg-onyx-1"
+                { "   backdrop-blur-sm bg-white/30 ": active },
+                "hover:bg-white/10"
               )}
             >
               <Image
@@ -66,7 +66,7 @@ const Sidebar = () => {
           className={cn(
             "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
             { "bg-default-4": profileItem.route === pathname },
-            "hover:bg-onyx-1"
+           "hover:bg-white/10"
           )}
         >
           <Image
@@ -85,8 +85,7 @@ const Sidebar = () => {
           variant={"ghost"}
           className={cn(
             "flex gap-5 items-center  px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
-
-            "hover:bg-onyx-1"
+            "hover:bg-white/10"
           )}
         >
           <Image

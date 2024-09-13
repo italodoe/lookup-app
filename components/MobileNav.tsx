@@ -57,7 +57,7 @@ const MobileNav = () => {
                         className={cn(
                           "flex gap-5 items-center p-5 rounded-lg w-full	max-w-64",
                           { "bg-default-4": active },
-                          "hover:bg-onyx-1 "
+                          "hover:bg-white/10"
                         )}
                       >
                         <Image
@@ -73,13 +73,13 @@ const MobileNav = () => {
                 })}
 
                 <div className="flex flex-2 flex-col justify-start gap-6 relative">
-                <Link
+                  <Link
                     href={profileItem.route}
                     key={profileItem.label}
                     className={cn(
                       "flex gap-5 items-center p-5 rounded-lg w-full	max-w-64",
                       { "bg-default-4": profileItem.route === pathname },
-                      "hover:bg-onyx-1"
+                      "hover:bg-white/10"
                     )}
                   >
                     <Image
@@ -88,18 +88,18 @@ const MobileNav = () => {
                       width={24}
                       height={24}
                     />
-                    <p className="text-lg font-semibold max-lg:hidden">
+                    <p className="text-lg font-semibold ">
                       {profileItem.label}
                     </p>
                   </Link>
+
                   <Button
                     onClick={onClick}
                     type="submit"
                     variant={"ghost"}
                     className={cn(
-                      "flex gap-5 items-center px-5 py-8 rounded-lg justify-start max-lg:justify-center	max-w-64",
-
-                      "hover:bg-onyx-1"
+                      "flex gap-5 items-center  py-8 rounded-lg justify-start max-lg:justify-start	max-w-64",
+                      "hover:bg-white/10"
                     )}
                   >
                     <Image
