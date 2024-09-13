@@ -13,6 +13,17 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "paper-1": "url('/images/paper-sheets-1.jpg')",
+        "paper-2": "url('/images/paper-sheets-2.jpg')",
+        "paper-3": "url('/images/paper-sheets-3.jpg')",
+        "paper-4": "url('/images/paper-sheets-4.jpg')",
+        "paper-5": "url('/images/paper-sheets-5.jpg')",
+        "layer-circular-black":
+          "url('/images/layers-circular-black-background.jpg')",
+        "layer-circular-black-with-white":
+          "url('/images/layers-circular-black-background-white-circle.jpg')",
+        "layer-circular-dark-black":
+          "url('/images/circular-layers-dark-background.jpg')",
       },
       borderRadius: {
         lg: "var(--radius)",
