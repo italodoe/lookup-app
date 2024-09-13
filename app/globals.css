@@ -4,7 +4,7 @@
 
 html,
 body,
-:root{
+:root {
   height: 100%;
 }
 
@@ -137,4 +137,34 @@ body,
 }
 .bg-default-5 {
   @apply bg-starla-5;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* card */
+.home-card-content {
+  background: linear-gradient(to top, rgba(112, 112, 112, 0.8), transparent);
+}
+
+.background-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-card {
+  transition: all 0.22s ease;
+  padding: 15px;
+}
+.home-card:hover {
+  padding: 0;
 }
