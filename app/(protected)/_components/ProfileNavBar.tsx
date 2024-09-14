@@ -10,9 +10,8 @@ import React from "react";
 
 const ProfileNavBar = () => {
   const pathname = usePathname();
-  console.log(pathname);
   const user = useCurrentUser();
-  const isAdmin = user.role === "ADMIN";
+  const isAdmin = user?.role === "ADMIN";
   return (
     <div
       className={cn(

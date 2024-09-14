@@ -4,8 +4,8 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 import ProfileSettings from "@/app/(protected)/_components/ProfileSettings";
 
-const Profile = () => {
-  const session = useCurrentUser();
+const Profile =  () => {
+
   return (
     <section className="flex size-full flex-col gap-10 text-white">
       <h1 className="text-4xl font-light">Profile </h1>
