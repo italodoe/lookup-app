@@ -30,9 +30,8 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 import FormError from "@/components/FormError";
 import FormSuccess from "@/components/FormSuccess";
 
-const ProfileSettings = () => {
+const ProfileSettings =  () => {
   const user = useCurrentUser();
-  console.log(user)
   const { update } = useSession();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>("");
