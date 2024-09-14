@@ -6,12 +6,15 @@ import React, { useState } from "react";
 import HomeCard from "./HomeCard";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import MeetingModal from "./MeetingModal";
 
 const HomeMeetingCards = () => {
   const router = useRouter();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >(undefined);
+
+  const createMeeting = async () => {};
 
   return (
     <section className={cn("home-meeting-list", "mt-10")}>
@@ -62,6 +65,18 @@ const HomeMeetingCards = () => {
           </div>
         </div>
       </div>
+
+      <MeetingModal
+        isOpen={meetingState === "isInstantMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        handleClick={createMeeting}
+        values={{
+          action: "New meeting",
+          title: "Start an Instant Meeting",
+          className: "text-center",
+          buttonText: "Start Meeting",
+        }}
+      />
     </section>
   );
 };
