@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
+import { Textarea } from "./ui/textarea";
+import ReactDatePicker from "react-datepicker";
 
 const HomeMeetingCards = () => {
   const router = useRouter();
@@ -70,6 +72,8 @@ const HomeMeetingCards = () => {
     }
   };
 
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/meeting/${callDetails?.id}`;
+
   return (
     <section className={cn("home-meeting-list", "mt-10")}>
       <div className="items-center flex gap-2">
@@ -121,6 +125,70 @@ const HomeMeetingCards = () => {
         </div>
       </div>
 
+      {/* scheduleMeeting */}
+      {!callDetails ? (
+        <MeetingModal
+          isOpen={meetingState === "isScheduleMeeting"}
+          onClose={() => {
+            setMeetingState(undefined);
+          }}
+          handleClick={createMeeting}
+          values={{
+            action: "Schedule meeting",
+            title: "Create Meeting",
+            className: "text-center",
+          }}
+        >
+          <div className="flex flex-col gap-2.5 text-sky-200">
+            <label className="text-base text-normal leading-[22px] text-sky-1">
+              Add a description
+            </label>
+            <Textarea
+              className="text-sky-200 border-none bg-dark-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+              onChange={(e) => {
+                setValues({ ...values, description: e.target.value });
+              }}
+            ></Textarea>
+          </div>
+          <div className="flex w-full flex-col gap-2.5 text-sky-200">
+            <label className="text-base text-normal leading-[22px] text-sky-1">
+              Select Date and Time
+            </label>
+            <ReactDatePicker
+              selected={values.dateTime}
+              onChange={(date) => {
+                setValues({ ...values, dateTime: date! });
+              }}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={15}
+              timeCaption="time"
+              dateFormat={"MMMM d, yyyy h:m aa"}
+              className="w-full rounded bg-dark-2 p-2 focus:outline-none "
+            />
+          </div>
+        </MeetingModal>
+      ) : (
+        <MeetingModal
+          isOpen={meetingState === "isScheduleMeeting"}
+          onClose={() => {
+            setMeetingState(undefined);
+            setCallDetails(undefined);
+          }}
+          handleClick={() => {
+            navigator.clipboard.writeText(meetingLink);
+            toast({ title: "Link copied" });
+          }}
+          values={{
+            action: "Schedule meeting",
+            title: "Meeting Created",
+            className: "text-center",
+            image: "/icons/checked-outline-icon.svg",
+            buttonIcon: "/icons/copy-outline-icon.svg",
+            buttonText: "Copy Meeting Link",
+          }}
+        />
+      )}
       {/* isInstantMeeting */}
       <MeetingModal
         isOpen={meetingState === "isInstantMeeting"}
