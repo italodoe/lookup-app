@@ -251,6 +251,10 @@ body,
   --accentHover: #1865bc;
 }
 
+.str-video__call-controls__button {
+  width: 31px;
+}
+
 /* =============================== */
 
 @layer utilities {
