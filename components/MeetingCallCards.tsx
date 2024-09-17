@@ -1,11 +1,11 @@
 "use client";
+import { useToast } from "@/hooks/use-toast";
 import { useGetCalls } from "@/hooks/useGetCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import Loader from "./Loader";
-import { useToast } from "@/hooks/use-toast";
+import { useEffect, useState } from "react";
 import CallCard from "./CallCard";
+import Loader from "./Loader";
 
 // @ts-nocheck
 
@@ -95,7 +95,7 @@ const MeetingCallCards = ({
                   0,
                   26
                 ) ||
-                (meeting as Call)?.state?.custom?.filename?.substring(0, 20) ||
+                (meeting as CallRecording)?.filename?.substring(0, 20) ||
                 "No description"
               }
               date={date || ""}

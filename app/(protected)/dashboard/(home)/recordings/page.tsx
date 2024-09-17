@@ -1,11 +1,12 @@
-import React from "react";
+import MeetingCallCards from "@/components/MeetingCallCards";
 
-const Recordings = () => {
+function Recordings() {
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-4xl font-light"> Recordings</h1>
-    </section>
+    <div className="flex size-full flex-col gap-10 text-slate-50">
+      <h1 className="text-4xl font-light">Recording Meetings</h1>
+      <MeetingCallCards type="recordings" />
+    </div>
   );
-};
+}
 
 export default Recordings;
