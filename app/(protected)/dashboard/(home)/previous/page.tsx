@@ -1,11 +1,12 @@
-import React from "react";
+import MeetingCallCards from "@/components/MeetingCallCards";
 
-const Previous = () => {
+function Previous() {
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-4xl font-light"> Previous</h1>
-    </section>
+    <div className="flex size-full flex-col gap-10 text-slate-50">
+      <h1 className="text-4xl font-light">Previous Meetings</h1>
+      <MeetingCallCards type="ended" />
+    </div>
   );
-};
+}
 
 export default Previous;
