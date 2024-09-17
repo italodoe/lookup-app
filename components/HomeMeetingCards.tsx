@@ -6,10 +6,11 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import ReactDatePicker from "react-datepicker";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
+import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import ReactDatePicker from "react-datepicker";
 
 const HomeMeetingCards = () => {
   const router = useRouter();
@@ -201,6 +202,27 @@ const HomeMeetingCards = () => {
           buttonText: "Start Meeting",
         }}
       />
+
+      {/* JoiningMeeting */}
+      <MeetingModal
+        isOpen={meetingState === "isJoiningMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        handleClick={() => router.push(values.link)}
+        values={{
+          action: "Join meeting",
+          title: "Type the link here",
+          className: "text-center",
+          buttonText: "Join Meeting",
+        }}
+      >
+        <Input
+          placeholder="Meeting link"
+          className="border-none bg-dark-2 focus-visible:ring-0 focus-visible:ring-offset-0 text-sky-200"
+          onChange={(e) => {
+            setValues({ ...values, link: e.target.value });
+          }}
+        />
+      </MeetingModal>
     </section>
   );
 };
