@@ -100,7 +100,7 @@ const HomeMeetingCards = () => {
                   className=" bg-paper-1 background-image "
                 />
                 <HomeCard
-                  img="/icons/schedule.svg"
+                  img="/icons/calendar-circle.svg"
                   title="Schedule Meeting"
                   description="Plan your meeting"
                   handleClick={() => setMeetingState("isScheduleMeeting")}
