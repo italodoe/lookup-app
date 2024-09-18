@@ -286,3 +286,11 @@ body,
 .react-datepicker__header{
   @apply backdrop-blur-xl bg-slate-3/90 
 }
+
+.bg-backdrop-xl{
+  @apply backdrop-blur-xl bg-slate-3/30
+}
+
+.bg-backdrop-sm{
+  @apply backdrop-blur-sm bg-[#d6ecff4d]/30
+}
