@@ -275,22 +275,21 @@ body,
   background-color: #995d61;
 }
 
-
 /* =============================== */
 
 .react-datepicker,
-.react-datepicker__time-container .react-datepicker__time{
- @apply backdrop-blur-xl bg-slate-3/80 
+.react-datepicker__time-container .react-datepicker__time {
+  @apply backdrop-blur-xl bg-slate-3/80;
 }
 
-.react-datepicker__header{
-  @apply backdrop-blur-xl bg-slate-3/90 
+.react-datepicker__header {
+  @apply backdrop-blur-xl bg-slate-3/90;
 }
 
-.bg-backdrop-xl{
-  @apply backdrop-blur-xl bg-slate-3/30
+.bg-backdrop-xl {
+  @apply backdrop-blur-xl bg-slate-3/30;
 }
 
-.bg-backdrop-sm{
-  @apply backdrop-blur-sm bg-[#d6ecff4d]/30
+.bg-backdrop-sm {
+  @apply backdrop-blur-sm bg-[#d6ecff4d]/30;
 }
