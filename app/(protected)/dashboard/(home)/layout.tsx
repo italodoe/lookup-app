@@ -1,18 +1,48 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import React, { ReactNode } from "react";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative">
-      <Navbar />
-      <div className="flex ">
-        <Sidebar />
-        <section className="  rounded-3xl flex  flex-1 flex-col px-6 pb-6 pt-16 max-md:pb-14 sm:px-14 mx-5 max-sm:mb-4 min-h-[calc(100vh-3rem)] shadow hover:shadow-md backdrop-blur-sm bg-white/10">
-          <div className="w-full break-all">{children}</div>
-        </section>
+    <>
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="black"
+        gradientBackgroundEnd="rgb(0, 17, 82)"
+        // firstColor="18, 113, 255"
+        firstColor="14, 59, 45"
+        // secondColor="221, 74, 255"
+        secondColor="159, 6, 70"
+        // thirdColor="100, 220, 255"
+        thirdColor="28, 142, 210"
+        // fourthColor="200, 50, 50"
+        fourthColor="0, 83, 2"
+        // fifthColor="180, 180, 50"
+        fifthColor="141, 85, 0"
+        size="137%"
+        interactive={false}
+        blendingValue={"hard-light"}
+      ></BackgroundGradientAnimation>
+      <div className="absolute z-50 inset-0  ">
+        <div className="relative">
+          <Navbar />
+          <div className="flex ">
+            <Sidebar />
+            <section
+              className={cn(
+                "transition-all	",
+                "shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] backdrop-blur-xl ",
+                "  rounded-3xl flex  flex-1 flex-col px-6 pb-6 pt-16 max-md:pb-14 ",
+                "sm:px-14 mx-5 max-sm:mb-4 min-h-[calc(100vh-3rem)] "
+              )}
+            >
+              <div className="w-full break-all">{children}</div>
+            </section>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ const HomeMeetingHeader = ({ time, date }: HomeMeetingHeaderProps) => {
 
   return (
     <div
-      className="h-[300px] w-full rounded-[20px]  relative bg-layer-circular-dark-black bg-cover"
+      className="h-[300px] w-full rounded-[20px] relative bg-paper-card-12 bg-cover"
       onMouseEnter={(e: React.MouseEvent) => setHover(true)}
       onMouseLeave={(e: React.MouseEvent) => setHover(false)}
     >

@@ -17,14 +17,17 @@ const Sidebar = () => {
   return (
     <section
       className={cn(
-        `bg-default-1`,
-        "sticky left-0 top-0 flex h-screen w-fit flex-col justify-between p-6 text-white",
+        "rounded-3xl",
+        "transition-all	",
+        "shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] backdrop-blur-xl ",
+        // `backdrop-blur-sm bg-[#d6ecff4d]/30`,
+        "sticky ml-5 left-0 top-0 flex h-screen w-fit flex-col justify-between p-6 text-white",
         "max-sm:hidden jg:w-[264px]"
       )}
     >
-      <div>
+      <div className="flex justify-center">
         <LogoName
-          classes="text-3xl text-gray-50"
+          classes="text-3xl text-gray-50 "
           href={DEFAULT_LOGIN_REDIRECT}
         />
       </div>
@@ -38,7 +41,8 @@ const Sidebar = () => {
             <Link
               href={item.route}
               key={item.label}
-              className={cn("sidebar-item",
+              className={cn(
+                "sidebar-item",
                 "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
                 { "   backdrop-blur-sm bg-white/30 ": active },
                 "hover:bg-white/10"
@@ -65,7 +69,7 @@ const Sidebar = () => {
           className={cn(
             "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
             { "bg-default-4": profileItem.route === pathname },
-           "hover:bg-white/10"
+            "hover:bg-white/10"
           )}
         >
           <Image

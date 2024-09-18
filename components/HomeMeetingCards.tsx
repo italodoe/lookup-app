@@ -97,28 +97,28 @@ const HomeMeetingCards = () => {
                   title="New Meeting"
                   description="Start an instant meeting"
                   handleClick={() => setMeetingState("isInstantMeeting")}
-                  className=" bg-paper-1 background-image "
+                  className=" bg-paper-card-13 backdrop-blur-xl background-image "
                 />
                 <HomeCard
                   img="/icons/calendar-circle.svg"
                   title="Schedule Meeting"
                   description="Plan your meeting"
                   handleClick={() => setMeetingState("isScheduleMeeting")}
-                  className=" bg-paper-5 background-image "
+                  className=" bg-paper-card-15 backdrop-blur-xl background-image "
                 />
                 <HomeCard
                   img="/icons/recordings-outline-2.svg"
                   title="View Recordings"
                   description="Check out your recordings"
                   handleClick={() => router.push("/dashboard/recordings")}
-                  className=" bg-paper-3 background-image "
+                  className=" bg-paper-card-18 backdrop-blur-xl background-image "
                 />
                 <HomeCard
                   img="/icons/add-circle-outline.svg"
                   title="Join Meeting"
                   description="via invitation link"
                   handleClick={() => setMeetingState("isJoiningMeeting")}
-                  className=" bg-paper-4 background-image "
+                  className=" bg-paper-card-14 backdrop-blur-xl background-image "
                 />
               </div>
             </div>

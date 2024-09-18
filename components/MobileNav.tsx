@@ -6,6 +6,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+import { logout } from "@/actions/logout";
 import { logoutItem, profileItem, sidebarItems } from "@/constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
@@ -14,7 +15,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LogoName from "./LogoName";
 import { Button } from "./ui/button";
-import { logout } from "@/actions/logout";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -33,7 +33,7 @@ const MobileNav = () => {
             className="hover:bg-onyx-1 rounded-full p-1 cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent className="bg-default-1">
+        <SheetContent className=" shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] backdrop-blur-xl bg-transparent ">
           <div className="w-full items-center flex gap-1 max-lg:justify-center justify-center ">
             <LogoName
               classes="text-3xl text-gray-50 "

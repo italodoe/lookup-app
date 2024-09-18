@@ -9,10 +9,73 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
+      },
+      keyframes: {
+        moveHorizontal: {
+          "0%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+          "50%": {
+            transform: "translateX(50%) translateY(10%)",
+          },
+          "100%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+        },
+        moveInCircle: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "50%": {
+            transform: "rotate(180deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        moveVertical: {
+          "0%": {
+            transform: "translateY(-50%)",
+          },
+          "50%": {
+            transform: "translateY(50%)",
+          },
+          "100%": {
+            transform: "translateY(-50%)",
+          },
+        },
+      },
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "paper-card-1": "url('/images/bg-black-card.png')",
+        "paper-card-2": "url('/images/bg-blue-card.png')",
+        "paper-card-3": "url('/images/bg-green-card.png')",
+        "paper-card-4": "url('/images/bg-pink-card.png')",
+        "paper-card-5": "url('/images/bg-violet2-card.png')",
+        "paper-card-6": "url('/images/bg-violet-card.png')",
+        "paper-card-7": "url('/images/bg-pink3-card.png')",
+        "paper-card-8": "url('/images/bg-pink2-card.png')",
+        "paper-card-9": "url('/images/bg-pink-card.png')",
+        "paper-card-10": "url('/images/bg-orange-light-card.png')",
+        "paper-card-11": "url('/images/bg-orange-card.png')",
+        "paper-card-12": "url('/images/bg-gradient-card.png')",
+        "paper-card-13": "url('/images/bg-gradient2-card.png')",
+        "paper-card-14": "url('/images/bg-gradient3-card.png')",
+        "paper-card-15": "url('/images/bg-gradient4-card.png')",
+        "paper-card-16": "url('/images/bg-gradient5-card.png')",
+        "paper-card-17": "url('/images/bg-gradient6-card.png')",
+        "paper-card-18": "url('/images/bg-gradient7-card.png')",
+        "paper-card-19": "url('/images/bg-gradient8-card.png')",
+
         "paper-1": "url('/images/paper-sheets-1.jpg')",
         "paper-2": "url('/images/paper-sheets-2.jpg')",
         "paper-3": "url('/images/paper-sheets-3.jpg')",

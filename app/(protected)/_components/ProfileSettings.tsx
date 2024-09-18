@@ -1,11 +1,13 @@
 "use client";
-import React, { useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { useSession } from "next-auth/react";
 
+import { settings } from "@/actions/settings";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,9 +15,9 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { settings } from "@/actions/settings";
-import { Button } from "@/components/ui/button";
 
+import FormError from "@/components/FormError";
+import FormSuccess from "@/components/FormSuccess";
 import {
   Form,
   FormControl,
@@ -24,13 +26,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { SettingsSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
-import FormError from "@/components/FormError";
-import FormSuccess from "@/components/FormSuccess";
+import { SettingsSchema } from "@/schemas";
 
-const ProfileSettings =  () => {
+const ProfileSettings = () => {
   const user = useCurrentUser();
   const { update } = useSession();
   const [isPending, startTransition] = useTransition();
@@ -70,7 +70,7 @@ const ProfileSettings =  () => {
   return (
     <Card
       className={cn(
-        `bg-default-1`,
+        `bg-default-1 border-none backdrop-blur-xl bg-[#000e1f]/70 `,
         "flex flex-col p-4 rounded-xl  max-lg:max-w-[300px] w-[600px] shadow-md text-white"
       )}
     >
