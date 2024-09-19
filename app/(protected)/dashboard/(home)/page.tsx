@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import BackgroundSvg from "@/components/BackgroundSvg";
 import HomeMeetingCards from "@/components/HomeMeetingCards";
 import HomeMeetingHeader from "@/components/HomeMeetingHeader";
 import React from "react";
@@ -14,6 +15,7 @@ const HomePage = () => {
   );
   return (
     <section className="flex size-full flex-col gap-10 text-white">
+      <BackgroundSvg />
       <HomeMeetingHeader time={time} date={date} />
 
       <HomeMeetingCards />
