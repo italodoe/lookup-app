@@ -30,7 +30,7 @@ const BackgroundSvg = () => {
           </linearGradient>
         </defs>
       </svg>
-      ;
+ 
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9.87500rem"
