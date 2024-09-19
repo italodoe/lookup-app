@@ -20,10 +20,11 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
         fourthColor="0, 83, 2"
         // fifthColor="180, 180, 50"
         fifthColor="141, 85, 0"
-        size="137%"
+        size="127%"
         interactive={false}
         blendingValue={"hard-light"}
       ></BackgroundGradientAnimation>
+      <div className="absolute z-40 bg-black/10 top-0 left-0 right-0 bottom-0"></div>
       <div className="absolute z-50 inset-0  ">
         <div className="relative">
           <Navbar />
