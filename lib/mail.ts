@@ -2,7 +2,7 @@ import {
   DEFAULT_AUTH_NEW_VERIFICATION_PAGE,
   DEFAULT_NEW_PASSWORD_PAGE,
 } from "@/routes";
-import { Resend } from "Resend";
+import { Resend } from "resend";
 import { env } from "./env";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
