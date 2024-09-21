@@ -5,9 +5,11 @@ import {
 } from "@/routes";
 import { env } from "./env";
 
-const resend = new Resend(env("RESEND_API_KEY"));
+const activeResend = env("RESEND_ACTIVE") === "true"  ;
+const resend = activeResend ? new Resend(env("RESEND_API_KEY")) : null;
 
 export async function sendPasswordResetEmail(email: string, token: string) {
+  if (!resend) return null;
   const protocol = env("NEXT_PUBLIC_PROTOCOL");
   const hostname = env("NEXT_PUBLIC_BASE_URL");
   const default_from = env("MAILER_DEFAULT_FROM");
@@ -26,6 +28,7 @@ export async function sendPasswordResetEmail(email: string, token: string) {
 }
 
 export async function sendVerificationEmail(email: string, token: string) {
+  if (!resend) return null;
   const protocol = env("NEXT_PUBLIC_PROTOCOL");
   const hostname = env("NEXT_PUBLIC_BASE_URL");
   const default_from = env("MAILER_DEFAULT_FROM");
