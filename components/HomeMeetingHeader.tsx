@@ -1,11 +1,14 @@
 "use client";
+import { currentUser } from "@/lib/auth";
+import { extendedUser } from "@/next-auth";
 import React, { useState } from "react";
 interface HomeMeetingHeaderProps {
   time: string;
   date: string;
+  user: extendedUser|null;
 }
 
-const HomeMeetingHeader = ({ time, date }: HomeMeetingHeaderProps) => {
+const HomeMeetingHeader = ({ time, date, user }: HomeMeetingHeaderProps) => {
   const [hover, setHover] = useState(false);
   const video = "/videos/video.mp4";
   const image = "/images/layers-circular-black-background.jpg";
@@ -32,7 +35,8 @@ const HomeMeetingHeader = ({ time, date }: HomeMeetingHeaderProps) => {
 
       <div className="flex h-full flex-col justify-between p-4 max-md:px-5 max-md:py-8 lg:p-11 absolute top-0 ">
         <h2 className="glassmorphism max-w-[270px] rounded text-center text-base font-normal p-2 z-10">
-          Upcoming Meeting at: 12:30 PM TODO
+          Hi, {user ? user.name || user.email :  "There"}
+          {/* Upcoming Meeting at: 12:30 PM TODO */}
         </h2>
         <div className="flex flex-col gap-2 z-10">
           <h1 className="text-4xl font-light lg:text-8xl">{time}</h1>
