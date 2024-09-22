@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import ReactDatePicker from "react-datepicker";
 import HomeCard from "./HomeCard";
 import MeetingModal from "./MeetingModal";
@@ -26,6 +26,7 @@ const HomeMeetingCards = () => {
   });
   const [callDetails, setCallDetails] = useState<Call>();
   const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
 
   const createMeeting = async () => {
     if (!client || !user) return;
@@ -46,16 +47,16 @@ const HomeMeetingCards = () => {
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
 
       const description = values.description || "Instant Meeting";
-
-      await call.getOrCreate({
-        data: {
-          starts_at: startsAt,
-          custom: {
-            description,
+      startTransition(async () => {
+        await call.getOrCreate({
+          data: {
+            starts_at: startsAt,
+            custom: {
+              description,
+            },
           },
-        },
+        });
       });
-
       setCallDetails(call);
 
       if (!values.description) {
@@ -138,6 +139,7 @@ const HomeMeetingCards = () => {
             action: "Schedule meeting",
             title: "Create Meeting",
             className: "text-center",
+            disabled: isPending,
           }}
         >
           <div className="flex flex-col gap-2.5 text-sky-200">
@@ -200,6 +202,7 @@ const HomeMeetingCards = () => {
           title: "Start an Instant Meeting",
           className: "text-center",
           buttonText: "Start Meeting",
+          disabled: isPending,
         }}
       />
 

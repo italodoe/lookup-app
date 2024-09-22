@@ -1,15 +1,14 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
+import Image from "next/image";
 import { ReactNode } from "react";
+import { Button } from "./ui/button";
 
 interface MeetingModalProps {
   values: {
@@ -20,6 +19,7 @@ interface MeetingModalProps {
     buttonText?: string;
     buttonIcon?: string;
     image?: string;
+    disabled?: boolean;
   };
   isOpen: boolean;
   onClose: () => void;
@@ -28,7 +28,16 @@ interface MeetingModalProps {
 }
 
 const MeetingModal = ({
-  values: { message, action, title, className, buttonText, buttonIcon, image },
+  values: {
+    message,
+    action,
+    title,
+    className,
+    buttonText,
+    buttonIcon,
+    image,
+    disabled,
+  },
   isOpen,
   onClose,
   handleClick,
@@ -66,6 +75,7 @@ const MeetingModal = ({
 
           {children}
           <Button
+            disabled={disabled !== undefined ? disabled : false}
             className="btn-primary-stl focus-visible:ring-0 focus-visible:ring-offset-0   "
             onClick={handleClick}
           >
