@@ -66,7 +66,7 @@ const MeetingModal = ({
 
           {children}
           <Button
-            className="bg-default-4 focus-visible:ring-0 focus-visible:ring-offset-0 text-slate-50"
+            className="btn-primary-stl focus-visible:ring-0 focus-visible:ring-offset-0   "
             onClick={handleClick}
           >
             {buttonIcon && (

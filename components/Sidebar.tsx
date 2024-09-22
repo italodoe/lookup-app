@@ -68,7 +68,7 @@ const Sidebar = () => {
           key={profileItem.label}
           className={cn(
             "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
-            { "bg-default-4": profileItem.route === pathname },
+            { "bg-white/30": profileItem.route === pathname },
             "hover:brightness-50"
           )}
         >

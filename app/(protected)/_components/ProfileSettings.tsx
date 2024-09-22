@@ -164,7 +164,7 @@ const ProfileSettings = () => {
                 disabled={isPending}
                 type="submit"
                 variant={"secondary"}
-                className="w-full "
+                className="btn-primary-stl w-full "
               >
                 Save
               </Button>

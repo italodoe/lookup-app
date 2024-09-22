@@ -42,10 +42,10 @@ const CallCard = ({
       </article>
       <article className={cn("flex justify-center relative", {})}>
         {!isPreviousMeeting && (
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button
               onClick={handleClick}
-              className="rounded bg-blue-1 px-6 bg-default-4"
+              className="btn-primary-stl w-28"
             >
               &nbsp;&nbsp;&nbsp;
               {buttonIcon1 ? (
@@ -68,7 +68,7 @@ const CallCard = ({
                   title: "Link Copied",
                 });
               }}
-              className="bg-dark-1/40 px-6"
+              className="btn-secondary-stl"
             >
               <Image
                 src="/icons/copy-outline-icon.svg"

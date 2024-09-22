@@ -293,3 +293,18 @@ body,
 .bg-backdrop-sm {
   @apply backdrop-blur-sm bg-[#d6ecff4d]/30;
 }
+
+/* button style =================== */
+
+.btn-primary-stl{
+  @apply bg-[#2270dbc7] text-white border-0 hover:bg-white/45
+}
+.btn-primary-stl:hover{
+  @apply  text-white  hover:bg-white/35
+}
+.btn-secondary-stl{
+  @apply bg-transparent hover:bg-white/45 hover:text-white hover:border-transparent
+}
+.btn-secondary-stl:hover{
+  @apply  hover:bg-white/45 hover:text-white hover:border-transparent
+}

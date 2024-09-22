@@ -1,8 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { useGetCallById } from "@/hooks/useGetCallById";
+import { cn } from "@/lib/utils";
 import { useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 
@@ -31,7 +39,7 @@ function PersonalRoom() {
   const client = useStreamVideoClient();
   const router = useRouter();
   const meetingId = user?.id;
-  const {host} = window.location;
+  const { host } = window.location;
   const meetingLink = `${process.env.NEXT_PUBLIC_PROTOCOL}://${host}/dashboard/meeting/${meetingId}?personal=true`;
   const { call } = useGetCallById(meetingId!);
 
@@ -51,24 +59,45 @@ function PersonalRoom() {
   return (
     <section className="flex size-full flex-col gap-10 text-slate-50">
       <h1 className="text-4xl font-light">Personal Room</h1>
-      <div className="flex flex-col w-full gap-8 xl:max-w-[900px]">
-        <Table title="Topic" description={`${user?.name}'s Meeting Room`} />
-        <Table title="Meeting ID" description={meetingId!} />
-        <Table title="Invite Link" description={meetingLink!} />
-      </div>
-      <div className="flex gap-5">
-        <Button className="bg-blue-1" onClick={startRoom}>
-          Start Meeting
-        </Button>
-        <Button
-          className="bg-dark-2"
-          onClick={() => {
-            navigator.clipboard.writeText(meetingLink);
-            toast({ title: "Link copied" });
-          }}
+      <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center">
+        <Card
+          className={cn(
+            `bg-default-1 border-none backdrop-blur-xl bg-[#000e1f]/70 `,
+            "flex flex-col p-4 rounded-xl  max-lg:max-w-[300px] w-[600px] shadow-md text-white"
+          )}
         >
-          Copy Link
-        </Button>
+          <CardHeader>
+            <p className="text-xl font-semibold text-center">{`${user?.name}'s Meeting Room`}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="my-6 space-y-1">
+              <label>Meeting ID</label>
+              <div>{meetingId!}</div>
+            </div>
+
+            <div className="my-6 space-y-1">
+              <label>Invite Link</label>
+              <Input value={meetingLink} readOnly type="text" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="w-full flex items-start gap-4 flex-wrap">
+              <Button className=" btn-primary-stl" onClick={startRoom}>
+                Start Meeting
+              </Button>
+              <Button
+                className="btn-secondary-stl"
+                variant={"outline"}
+                onClick={() => {
+                  navigator.clipboard.writeText(meetingLink);
+                  toast({ title: "Link copied" });
+                }}
+              >
+                Copy Link
+              </Button>
+            </div>
+          </CardFooter>
+        </Card>
       </div>
     </section>
   );
