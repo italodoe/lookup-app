@@ -22,7 +22,7 @@ const MobileNav = () => {
     await logout();
   };
   return (
-    <section className="w-full max-w-[264]">
+    <section className="w-full max-w-[264] z-50">
       <Sheet>
         <SheetTrigger asChild>
           <Image
@@ -57,7 +57,7 @@ const MobileNav = () => {
                         className={cn(
                           "flex gap-5 items-center p-5 rounded-lg w-full	max-w-64",
                           { "bg-default-4": active },
-                          "hover:bg-white/10"
+                          "hover:brightness-50"
                         )}
                       >
                         <Image
@@ -79,7 +79,7 @@ const MobileNav = () => {
                     className={cn(
                       "flex gap-5 items-center p-5 rounded-lg w-full	max-w-64",
                       { "bg-default-4": profileItem.route === pathname },
-                      "hover:bg-white/10"
+                      "hover:brightness-50"
                     )}
                   >
                     <Image
@@ -99,7 +99,7 @@ const MobileNav = () => {
                     variant={"ghost"}
                     className={cn(
                       "flex gap-5 items-center  py-8 rounded-lg justify-start max-lg:justify-start	max-w-64",
-                      "hover:bg-white/10"
+                      "hover:brightness-50"
                     )}
                   >
                     <Image

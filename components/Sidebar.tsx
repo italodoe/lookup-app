@@ -44,8 +44,8 @@ const Sidebar = () => {
               className={cn(
                 "sidebar-item",
                 "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
-                { "   backdrop-blur-sm bg-white/30 ": active },
-                "hover:bg-white/10"
+                { "    bg-white/30 ": active },
+                "hover:brightness-50"
               )}
             >
               <Image
@@ -69,7 +69,7 @@ const Sidebar = () => {
           className={cn(
             "flex gap-5 items-center p-5 rounded-lg justify-start max-lg:justify-center	",
             { "bg-default-4": profileItem.route === pathname },
-            "hover:bg-white/10"
+            "hover:brightness-50"
           )}
         >
           <Image
@@ -88,7 +88,7 @@ const Sidebar = () => {
           variant={"ghost"}
           className={cn(
             "flex gap-5 items-center  px-5 py-8 rounded-lg justify-start max-lg:justify-center	",
-            "hover:bg-white/10"
+            "hover:brightness-50"
           )}
         >
           <Image
