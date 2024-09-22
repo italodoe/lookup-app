@@ -22,7 +22,7 @@ const Sidebar = () => {
         "shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] backdrop-blur-xl ",
         // `backdrop-blur-sm bg-[#d6ecff4d]/30`,
         "sticky ml-5 left-0 top-0 flex h-screen w-fit flex-col justify-between p-6 text-white",
-        "max-sm:hidden jg:w-[264px]"
+        "max-sm:hidden jg:w-[264px] overflow-auto"
       )}
     >
       <div className="flex justify-center">

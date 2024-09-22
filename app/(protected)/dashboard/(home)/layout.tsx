@@ -35,7 +35,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
                 "transition-all	",
                 "shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)] backdrop-blur-xl ",
                 "  rounded-3xl flex  flex-1 flex-col px-6 pb-6 pt-16 max-md:pb-14 ",
-                "sm:px-14 mx-5 max-sm:mb-4 min-h-[calc(100vh-3rem)] "
+                "sm:px-14 mx-5 max-sm:mb-4 min-h-[calc(100vh-3rem)] h-screen overflow-auto"
               )}
             >
               <div className="w-full break-all">{children}</div>

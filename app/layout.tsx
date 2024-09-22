@@ -5,7 +5,7 @@ import "@stream-io/video-react-sdk/dist/css/styles.css";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { Inter } from "next/font/google";
-import 'react-datepicker/dist/react-datepicker.css';
+import "react-datepicker/dist/react-datepicker.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +25,9 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={cn(inter.className, `bg-default-1`)}>
+        <body
+          className={cn(inter.className, `bg-default-1`, "overflow-hidden")}
+        >
           {children}
           <Toaster />
         </body>
