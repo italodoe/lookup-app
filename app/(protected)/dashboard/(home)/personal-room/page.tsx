@@ -7,6 +7,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { toastDuration } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { useGetCallById } from "@/hooks/useGetCallById";
@@ -90,7 +91,7 @@ function PersonalRoom() {
                 variant={"outline"}
                 onClick={() => {
                   navigator.clipboard.writeText(meetingLink);
-                  toast({ title: "Link copied" });
+                  toast({ title: "Link copied", duration: toastDuration });
                 }}
               >
                 Copy Link

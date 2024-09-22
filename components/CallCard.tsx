@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 
+import { toastDuration } from "@/constants";
+import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 interface CallCardProps {
   title: string;
@@ -43,10 +44,7 @@ const CallCard = ({
       <article className={cn("flex justify-center relative", {})}>
         {!isPreviousMeeting && (
           <div className="flex gap-2 flex-wrap">
-            <Button
-              onClick={handleClick}
-              className="btn-primary-stl w-28"
-            >
+            <Button onClick={handleClick} className="btn-primary-stl w-28">
               &nbsp;&nbsp;&nbsp;
               {buttonIcon1 ? (
                 <Image src={buttonIcon1} alt="feature" width={20} height={20} />
@@ -66,6 +64,7 @@ const CallCard = ({
                 navigator.clipboard.writeText(link);
                 toast({
                   title: "Link Copied",
+                  duration: toastDuration,
                 });
               }}
               className="btn-secondary-stl"

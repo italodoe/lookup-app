@@ -37,3 +37,5 @@ export const logoutItem = {
   route: "",
   imgUrl: "/icons/logout.svg",
 };
+
+export const toastDuration = 1500;

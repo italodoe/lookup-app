@@ -1,4 +1,5 @@
 "use client";
+import { toastDuration } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { cn } from "@/lib/utils";
@@ -34,6 +35,7 @@ const HomeMeetingCards = () => {
       if (!values.dateTime) {
         toast({
           title: "Please select a date and time",
+          duration: toastDuration,
         });
         return;
       }
@@ -66,10 +68,12 @@ const HomeMeetingCards = () => {
 
       toast({
         title: "Meeting created",
+        duration: toastDuration,
       });
     } catch (error) {
       toast({
         title: "Failed to create meeting",
+        duration: toastDuration,
       });
     }
   };
@@ -180,7 +184,7 @@ const HomeMeetingCards = () => {
           }}
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
-            toast({ title: "Link copied" });
+            toast({ title: "Link copied", duration: toastDuration });
           }}
           values={{
             action: "Schedule meeting",

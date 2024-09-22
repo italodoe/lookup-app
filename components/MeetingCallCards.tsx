@@ -1,4 +1,5 @@
 "use client";
+import { toastDuration } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
 import { useGetCalls } from "@/hooks/useGetCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
@@ -57,7 +58,7 @@ const MeetingCallCards = ({
 
         setRecordings(recordings);
       } catch (error) {
-        toast({ title: "Try again later" });
+        toast({ title: "Try again later", duration: toastDuration });
       }
     };
 
