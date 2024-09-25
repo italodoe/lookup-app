@@ -1,3 +1,4 @@
+import BackgroundSvg from "@/components/BackgroundSvg";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
@@ -37,6 +38,8 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
                 "sm:px-14 mx-5 max-sm:mb-4 min-h-[calc(100vh-3rem)] h-screen overflow-auto"
               )}
             >
+              <BackgroundSvg />
+
               <div className="w-full break-all">{children}</div>
             </section>
           </div>

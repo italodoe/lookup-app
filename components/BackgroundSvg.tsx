@@ -8,7 +8,7 @@ const BackgroundSvg = () => {
         width="17.12500rem"
         height="25.12500rem"
         fill="none"
-        className="absolute bottom-0 hidden lg:block -z-10"
+        className="absolute left-0 bottom-0 hidden lg:block -z-10"
         viewBox="0 0 274 402"
       >
         <path
@@ -30,13 +30,13 @@ const BackgroundSvg = () => {
           </linearGradient>
         </defs>
       </svg>
- 
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9.87500rem"
         height="16.0625rem"
         fill="none"
-        className="absolute bottom-0 hidden lg:block -z-10"
+        className="absolute left-0  bottom-0 hidden lg:block -z-10"
         viewBox="0 0 158 257"
       >
         <path
