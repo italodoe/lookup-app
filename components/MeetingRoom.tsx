@@ -90,7 +90,7 @@ const MeetingRoom = () => {
                 >
                   {item}
                 </DropdownMenuItem>
-                {index}
+          
                 <DropdownMenuSeparator className="border-dark-1" />
               </div>
             ))}
