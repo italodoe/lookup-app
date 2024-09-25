@@ -5,7 +5,7 @@ import {
 } from "@/routes";
 import { env } from "./env";
 
-const activeResend = env("RESEND_ACTIVE") === "true"  ;
+const activeResend = env("RESEND_ACTIVE") === "true";
 const resend = activeResend ? new Resend(env("RESEND_API_KEY")) : null;
 
 export async function sendPasswordResetEmail(email: string, token: string) {
