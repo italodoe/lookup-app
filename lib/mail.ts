@@ -4,6 +4,8 @@ import {
   DEFAULT_NEW_PASSWORD_PAGE,
 } from "@/routes";
 import { env } from "./env";
+import { render } from "@react-email/render";
+import DefaultEmail from "@/components/DefaultEmail";
 
 const activeResend = env("RESEND_ACTIVE") === "true";
 const resend = activeResend ? new Resend(env("RESEND_API_KEY")) : null;
@@ -19,7 +21,7 @@ export async function sendPasswordResetEmail(email: string, token: string) {
     from: default_from,
     to: email,
     subject: "Reset your password",
-    html: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`,
+    html:  render(DefaultEmail({type:"reset", username: email, actionUrl: resetLink})), 
   });
   if (error) {
     return { error: error.message };
@@ -37,9 +39,8 @@ export async function sendVerificationEmail(email: string, token: string) {
   const { data, error } = await resend.emails.send({
     from: default_from,
     to: email,
-    subject: "Confirm your email",
-    // todo: improve mail
-    html: `<p>Click <a href="${confirmLink}">here</a> to confirm.</p>`,
+    subject: "Confirm your account",
+    html:  render(DefaultEmail({type:"register", username: email, actionUrl: confirmLink})), 
   });
   if (error) {
     return { error: error.message };
